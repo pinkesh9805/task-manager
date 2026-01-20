@@ -14,7 +14,9 @@ def show_menu():
     print("\nTask Manager")
     print("1. Add task")
     print("2. View tasks")
-    print("3. Exit")
+    print("3. Mark task as done")
+    print("4. Exit")
+
 
 def main():
     tasks = load_tasks()
@@ -36,6 +38,14 @@ def main():
                     print(f"{i}. {t}")
         elif choice == "3":
             break
+        elif choice == "3":
+            for i, t in enumerate(tasks, 1):
+              print(f"{i}. {t}")
+              num = int(input("Which task number? "))
+              tasks[num-1] = tasks[num-1] + " [DONE]"
+              save_tasks(tasks)
+              print("Task marked as done.")
+
         else:
             print("Invalid choice")
 
